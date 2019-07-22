@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-theme-clean-blog",
+  "name": "gatsby-theme-simple-blog",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Abdessalam98/gatsby-theme-clean-blog.git"
+    "url": "git+https://github.com/Abdessalam98/gatsby-theme-simple-blog.git"
   },
   "keywords": [],
   "author": "Abdessalam BENHARIRA <contact@abdessalam-benharira.me>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Abdessalam98/gatsby-theme-clean-blog/issues"
+    "url": "https://github.com/Abdessalam98/gatsby-theme-simple-blog/issues"
   },
-  "homepage": "https://github.com/Abdessalam98/gatsby-theme-clean-blog#readme",
+  "homepage": "https://github.com/Abdessalam98/gatsby-theme-simple-blog#readme",
   "peerDependencies": {
     "gatsby": "^2.13.32",
     "react": "^16.8.6",

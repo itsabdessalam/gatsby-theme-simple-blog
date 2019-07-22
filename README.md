@@ -1,1 +1,1 @@
-# Clean blog - Gatsby Theme
+# Simple blog - Gatsby Theme

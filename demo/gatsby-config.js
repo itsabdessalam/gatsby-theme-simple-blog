@@ -1,14 +1,14 @@
 module.exports = {
   plugins: [
     {
-      resolve: "gatsby-theme-clean-blog",
+      resolve: "gatsby-theme-simple-blog",
       options: {}
     }
   ],
   siteMetadata: {
-    title: "Clean blog",
+    title: "Simple blog",
     author: "Abdessalam",
-    description: "Clean blog theme starter",
+    description: "Simple blog theme starter",
     social: [
       {
         name: "twitter",
