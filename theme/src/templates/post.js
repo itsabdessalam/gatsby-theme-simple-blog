@@ -1,10 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-
 import Post from "../components/post";
 
-const PostTemplate = ({ data, pageContext }) => (
-  <Post data={data} previous={pageContext.previous} next={pageContext.next} />
+const PostTemplate = ({ data, pageContext: { previous, next } }) => (
+  <Post data={data} previous={previous} next={next} />
 );
 
 export default PostTemplate;

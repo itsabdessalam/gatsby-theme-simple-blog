@@ -5,6 +5,7 @@ import { Layout as StyledLayout, Main, Container } from "theme-ui";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "./Layout.css";
+
 const Layout = ({ children, cssClass }) => (
   <StaticQuery
     query={graphql`

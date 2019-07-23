@@ -3,11 +3,12 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import Img from "gatsby-image";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
+import Pagination from "../components/Pagination";
 import "./Post.css";
 
-const PostTemplate = (data, next, previous) => {
-  const post = data.data.blogPost;
-  const mediaImg = post.media.childImageSharp;
+const Post = ({ data, next, previous }) => {
+  const post = data.blogPost;
+  const mediaImg = post.media && post.media.childImageSharp;
 
   return (
     <Layout cssClass="single-post blog-style">
@@ -34,33 +35,20 @@ const PostTemplate = (data, next, previous) => {
             className="post-title"
             dangerouslySetInnerHTML={{ __html: post.title }}
           />
-          <div className="post-thumbnail">
-            <Img fluid={mediaImg.fluid} />
-          </div>
+
+          {post.media && (
+            <div className="post-thumbnail">
+              <Img fluid={mediaImg.fluid} />
+            </div>
+          )}
+
           <div className="post-content">
             <MDXRenderer>{post.body}</MDXRenderer>
           </div>
-          {/* <div className="pagination">
-            {prev && (
-              <div className="previous">
-                <Link className="link" to={`/${previous.slug}`}>
-                  <span className="pagination-title">Previous</span>
-                  <span className="article-title">{prev.title}</span>
-                </Link>
-              </div>
-            )}
-            {next && (
-              <div className="next">
-                <Link className="link" to={`/${next.slug}`}>
-                  <span className="pagination-title">Next</span>
-                  <span className="article-title">{next.title}</span>
-                </Link>
-              </div>
-            )}
-          </div> */}
+          <Pagination next={next} previous={previous} />
         </div>
       </div>
     </Layout>
   );
 };
-export default PostTemplate;
+export default Post;
