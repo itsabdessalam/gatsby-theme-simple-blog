@@ -3,18 +3,22 @@ const path = require("path");
 const mkdirp = require("mkdirp");
 const crypto = require("crypto");
 const { urlResolve } = require("gatsby-core-utils");
+const { slugify } = require("./src/utils");
 
 let basePath;
+let tagsPath;
 let contentPath;
 let assetPath;
 
 const PostTemplate = require.resolve("./src/templates/post");
 const PostsTemplate = require.resolve("./src/templates/posts");
+const TagTemplate = require.resolve("./src/templates/tag");
 
 exports.onPreBootstrap = ({ store }, themeOptions) => {
   const { program } = store.getState();
 
   basePath = themeOptions.basePath || "/";
+  tagsPath = themeOptions.tagsPath || "/tags";
   contentPath = themeOptions.contentPath || "content/posts";
   assetPath = themeOptions.assetPath || "content/assets";
 
@@ -110,9 +114,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             author
             slug
             title
+            tags
             date(formatString: "MMMM DD, YYYY")
           }
         }
+      }
+      mdxPostTags: allBlogPost {
+        distinct(field: tags)
       }
     }
   `);
@@ -122,11 +130,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   // Create Posts and Post pages.
+
   const {
     mdxPages,
+    mdxPostTags,
     site: { siteMetadata }
   } = result.data;
+
   const posts = mdxPages.edges;
+  const tags = mdxPostTags.distinct;
   const { title: siteTitle, social: socialLinks, navLinks } = siteMetadata;
 
   // Create a page for each Post
@@ -144,6 +156,20 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         navLinks,
         previous,
         next
+      }
+    });
+  });
+
+  // Tags
+  tags.forEach(tag => {
+    createPage({
+      path: `${tagsPath}/${slugify(tag)}`,
+      component: TagTemplate,
+      context: {
+        tag,
+        siteTitle,
+        socialLinks,
+        navLinks
       }
     });
   });

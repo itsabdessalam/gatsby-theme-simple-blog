@@ -31,6 +31,7 @@ export default {
     },
     Main: {
       margin: "0 auto",
+      width: "100%",
       maxWidth: "container",
       fontFamily: "default"
     },
