@@ -103,13 +103,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 					title
 					locale
 					themeConfig {
-						colors {
-							accentColor
-							backgroundColor
-							borderColor
-							textColor
-						}
-						highlightCodeLine
 						loadMorePosts
 						showNavLinks
 						themeSwitcher
@@ -193,6 +186,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 			component: PostTemplate,
 			context: {
 				...post,
+				siteURL,
 				previous,
 				next
 			}

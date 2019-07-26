@@ -20,6 +20,28 @@ body blockquote p {
 	font-size: 16px;
 }
 
+a.anchor-header {
+	margin-left: -30px;
+	padding-right: 10px;
+	opacity: 0;
+	visibility: hidden;
+	height: 0;
+}
+
+a.anchor-header svg {
+	fill: currentColor;
+}
+h1:hover a.anchor-header,
+h2:hover a.anchor-header,
+h3:hover a.anchor-header,
+h4:hover a.anchor-header,
+h5:hover a.anchor-header,
+h6:hover a.anchor-header {
+	opacity: 1;
+	visibility: visible;
+	height: inherit;
+}
+
 /* prism */
 code[class*="language-"],
 pre[class*="language-"] {
