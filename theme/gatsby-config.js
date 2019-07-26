@@ -43,14 +43,7 @@ module.exports = options => {
 				themeSwitcher: true,
 				showNavLinks: true,
 				readingTime: true,
-				loadMorePosts: true,
-				highlightCodeLine: true,
-				colors: {
-					accentColor: "#ebedf0",
-					textColor: "#ebedf0",
-					borderColor: "#ebedf0",
-					backgroundColor: "#ebedf0"
-				}
+				loadMorePosts: true
 			}
 		},
 		plugins: [
