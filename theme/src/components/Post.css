@@ -1,0 +1,18 @@
+.post-container .post-title {
+	margin-bottom: 5px;
+}
+
+.post-container .post-meta {
+	margin-bottom: 20px;
+	font-size: 14px;
+	color: #636d78;
+}
+
+.post-container .post-meta .separator {
+	font-size: 12px;
+	margin: 0 5px;
+}
+
+.post-container .post-meta .author-meta {
+	color: #3a3f46;
+}

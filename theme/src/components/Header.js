@@ -3,22 +3,24 @@ import React from "react";
 import { Container } from "theme-ui";
 import Nav from "./Nav";
 
-const Header = ({ siteTitle, navLinks }) => (
-  <header>
-    <Container>
-      <Nav title={siteTitle} links={navLinks} />
-    </Container>
-  </header>
-);
+const Header = ({ siteTitle, navLinks }) => {
+	return (
+		<header>
+			<Container>
+				<Nav title={siteTitle} links={navLinks} />
+			</Container>
+		</header>
+	);
+};
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
-  navLinks: PropTypes.array
+	siteTitle: PropTypes.string,
+	navLinks: PropTypes.array
 };
 
 Header.defaultProps = {
-  siteTitle: "",
-  navLinks: []
+	siteTitle: "",
+	navLinks: []
 };
 
 export default Header;

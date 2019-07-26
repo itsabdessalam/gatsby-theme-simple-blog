@@ -15,226 +15,270 @@ const PostsTemplate = require.resolve("./src/templates/posts");
 const TagTemplate = require.resolve("./src/templates/tag");
 
 exports.onPreBootstrap = ({ store }, themeOptions) => {
-  const { program } = store.getState();
+	const { program } = store.getState();
 
-  basePath = themeOptions.basePath || "/";
-  tagsPath = themeOptions.tagsPath || "/tags";
-  contentPath = themeOptions.contentPath || "content/posts";
-  assetPath = themeOptions.assetPath || "content/assets";
+	basePath = themeOptions.basePath || "/";
+	tagsPath = themeOptions.tagsPath || "/tags";
+	contentPath = themeOptions.contentPath || "content/posts";
+	assetPath = themeOptions.assetPath || "content/assets";
 
-  const dirs = [
-    path.join(program.directory, contentPath),
-    path.join(program.directory, assetPath)
-  ];
+	const dirs = [
+		path.join(program.directory, contentPath),
+		path.join(program.directory, assetPath)
+	];
 
-  dirs.forEach(dir => {
-    if (!fs.existsSync(dir)) {
-      mkdirp.sync(dir);
-    }
-  });
+	dirs.forEach(dir => {
+		if (!fs.existsSync(dir)) {
+			mkdirp.sync(dir);
+		}
+	});
 };
 
-const mdxResolverPassthrough = fieldName => async (
-  source,
-  args,
-  context,
-  info
-) => {
-  const type = info.schema.getType("Mdx");
-  const mdxNode = context.nodeModel.getNodeById({
-    id: source.parent
-  });
-  const resolver = type.getFields()[fieldName].resolve;
-  const result = await resolver(mdxNode, args, context, {
-    fieldName
-  });
-  return result;
+const mdxResolverPassthrough = fieldName => {
+	return async (source, args, context, info) => {
+		const type = info.schema.getType("Mdx");
+		const mdxNode = context.nodeModel.getNodeById({
+			id: source.parent
+		});
+		const resolver = type.getFields()[fieldName].resolve;
+		const result = await resolver(mdxNode, args, context, {
+			fieldName
+		});
+		return result;
+	};
 };
 exports.sourceNodes = ({ actions, schema }) => {
-  const { createTypes } = actions;
-  createTypes(
-    schema.buildObjectType({
-      name: "BlogPost",
-      fields: {
-        id: { type: "ID!" },
-        title: {
-          type: "String!"
-        },
-        slug: {
-          type: "String!"
-        },
-        author: {
-          type: "String!"
-        },
-        date: { type: "Date", extensions: { dateformat: {} } },
-        tags: { type: "[String]!" },
-        keywords: { type: "[String]!" },
-        excerpt: {
-          type: "String!",
-          args: {
-            pruneLength: {
-              type: "Int",
-              defaultValue: 140
-            }
-          },
-          resolve: mdxResolverPassthrough("excerpt")
-        },
-        body: {
-          type: "String!",
-          resolve: mdxResolverPassthrough("body")
-        }
-      },
-      interfaces: ["Node"]
-    })
-  );
+	const { createTypes } = actions;
+	createTypes(
+		schema.buildObjectType({
+			name: "BlogPost",
+			fields: {
+				id: { type: "ID!" },
+				title: {
+					type: "String!"
+				},
+				slug: {
+					type: "String!"
+				},
+				author: {
+					type: "String!"
+				},
+				draft: {
+					type: "Boolean!"
+				},
+				date: { type: "Date", extensions: { dateformat: {} } },
+				tags: { type: "[String]!" },
+				keywords: { type: "[String]!" },
+				postType: {
+					type: "String!"
+				},
+				excerpt: {
+					type: "String!",
+					args: {
+						pruneLength: {
+							type: "Int",
+							defaultValue: 140
+						}
+					},
+					resolve: mdxResolverPassthrough("excerpt")
+				},
+				body: {
+					type: "String!",
+					resolve: mdxResolverPassthrough("body")
+				}
+			},
+			interfaces: ["Node"]
+		})
+	);
 };
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions;
+	const { createPage } = actions;
 
-  const result = await graphql(`
-    {
-      site {
-        siteMetadata {
-          title
-          social {
-            name
-            url
-          }
-        }
-      }
-      mdxPages: allBlogPost(
-        sort: { fields: [date, title], order: DESC }
-        limit: 1000
-      ) {
-        edges {
-          node {
-            id
-            excerpt
-            author
-            slug
-            title
-            tags
-            date(formatString: "MMMM DD, YYYY")
-          }
-        }
-      }
-      mdxPostTags: allBlogPost {
-        distinct(field: tags)
-      }
-    }
-  `);
+	const result = await graphql(`
+		{
+			site {
+				siteMetadata {
+					url
+					title
+					locale
+					themeConfig {
+						colors {
+							accentColor
+							backgroundColor
+							borderColor
+							textColor
+						}
+						highlightCodeLine
+						loadMorePosts
+						showNavLinks
+						themeSwitcher
+						readingTime
+					}
+				}
+			}
+			mdxPosts: allBlogPost(
+				filter: { postType: { eq: "post" } }
+				sort: { fields: [date, title], order: DESC }
+				limit: 1000
+			) {
+				edges {
+					node {
+						id
+						excerpt
+						author
+						slug
+						title
+						tags
+						parent {
+							... on Mdx {
+								timeToRead
+							}
+						}
+						date(formatString: "MMMM DD, YYYY")
+					}
+				}
+			}
+			mdxPostTags: allBlogPost {
+				distinct(field: tags)
+			}
+			mdxPages: allBlogPost(
+				filter: { postType: { eq: "page" } }
+				sort: { fields: [date, title], order: DESC }
+				limit: 1000
+			) {
+				edges {
+					node {
+						id
+						excerpt
+						author
+						slug
+						title
+						tags
+						parent {
+							... on Mdx {
+								timeToRead
+							}
+						}
+						date(formatString: "MMMM DD, YYYY")
+					}
+				}
+			}
+		}
+	`);
 
-  if (result.errors) {
-    reporter.panic(result.errors);
-  }
+	if (result.errors) {
+		reporter.panic(result.errors);
+	}
 
-  // Create Posts and Post pages.
+	const {
+		mdxPosts,
+		mdxPostTags,
+		mdxPages,
+		site: { siteMetadata }
+	} = result.data;
 
-  const {
-    mdxPages,
-    mdxPostTags,
-    site: { siteMetadata }
-  } = result.data;
+	const posts = mdxPosts.edges;
+	const tags = mdxPostTags.distinct;
+	const pages = mdxPages.edges;
+	const { title: siteTitle, url: siteURL } = siteMetadata;
 
-  const posts = mdxPages.edges;
-  const tags = mdxPostTags.distinct;
-  const { title: siteTitle, social: socialLinks, navLinks } = siteMetadata;
+	// Single pages
+	posts.forEach(({ node: post }, index) => {
+		const previous = index === posts.length - 1 ? null : posts[index + 1];
+		const next = index === 0 ? null : posts[index - 1];
+		const { slug } = post;
+		createPage({
+			path: slug,
+			component: PostTemplate,
+			context: {
+				...post,
+				previous,
+				next
+			}
+		});
+	});
 
-  // Create a page for each Post
-  posts.forEach(({ node: post }, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1];
-    const next = index === 0 ? null : posts[index - 1];
-    const { slug } = post;
-    createPage({
-      path: slug,
-      component: PostTemplate,
-      context: {
-        ...post,
-        siteTitle,
-        socialLinks,
-        navLinks,
-        previous,
-        next
-      }
-    });
-  });
+	// Tags
+	tags.forEach(tag => {
+		createPage({
+			path: `${tagsPath}/${slugify(tag)}`,
+			component: TagTemplate,
+			context: {
+				tag
+			}
+		});
+	});
 
-  // Tags
-  tags.forEach(tag => {
-    createPage({
-      path: `${tagsPath}/${slugify(tag)}`,
-      component: TagTemplate,
-      context: {
-        tag,
-        siteTitle,
-        socialLinks,
-        navLinks
-      }
-    });
-  });
+	// Single pages
+	pages.forEach(({ node: page }) => {
+		const { slug } = page;
+		createPage({
+			path: slug,
+			component: PostTemplate,
+			context: {
+				...page,
+				siteTitle,
+				siteURL
+			}
+		});
+	});
 
-  // Create the Posts page
-  createPage({
-    path: basePath,
-    component: PostsTemplate,
-    context: {
-      posts,
-      siteTitle,
-      socialLinks,
-      navLinks
-    }
-  });
+	// Posts page
+	createPage({
+		path: basePath,
+		component: PostsTemplate,
+		context: {
+			posts,
+			siteTitle,
+			siteURL
+		}
+	});
 };
 
 // Create fields for post slugs and source
 // This will change with schema customization with work
 exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
-  const { createNode, createParentChildLink } = actions;
+	const { createNode, createParentChildLink } = actions;
 
-  const toPostPath = node => {
-    const { dir } = path.parse(node.relativePath);
-    return urlResolve(basePath, dir, node.name);
-  };
+	const toPostPath = node => {
+		const { dir } = path.parse(node.relativePath);
+		return urlResolve(basePath, dir, node.name);
+	};
 
-  // Make sure it's an MDX node
-  if (node.internal.type !== "Mdx") {
-    return;
-  }
+	if (node.internal.type !== "Mdx") {
+		return;
+	}
+	const fileNode = getNode(node.parent);
+	const source = fileNode.sourceInstanceName;
 
-  // Create source field (according to contentPath)
-  const fileNode = getNode(node.parent);
-  const source = fileNode.sourceInstanceName;
-
-  if (node.internal.type === "Mdx" && source === contentPath) {
-    const slug =
-      node.frontmatter.type === "post"
-        ? toPostPath(fileNode).replace("index", "")
-        : toPostPath(fileNode);
-
-    const fieldData = {
-      title: node.frontmatter.title,
-      tags: node.frontmatter.tags || [],
-      slug,
-      date: node.frontmatter.date,
-      author: node.frontmatter.author,
-      media: node.frontmatter.media
-    };
-    createNode({
-      ...fieldData,
-      id: createNodeId(`${node.id} >>> BlogPost`),
-      parent: node.id,
-      children: [],
-      internal: {
-        type: "BlogPost",
-        contentDigest: crypto
-          .createHash("md5")
-          .update(JSON.stringify(fieldData))
-          .digest("hex"),
-        content: JSON.stringify(fieldData),
-        description: "Blog Posts"
-      }
-    });
-    createParentChildLink({ parent: fileNode, child: node });
-  }
+	if (node.internal.type === "Mdx" && source === contentPath) {
+		const slug = toPostPath(fileNode).replace("index", "");
+		const fieldData = {
+			title: node.frontmatter.title,
+			tags: node.frontmatter.tags || [],
+			slug,
+			date: node.frontmatter.date,
+			author: node.frontmatter.author,
+			draft: node.frontmatter.draft,
+			postType: node.frontmatter.type,
+			media: node.frontmatter.media
+		};
+		createNode({
+			...fieldData,
+			id: createNodeId(`${node.id} >>> BlogPost`),
+			parent: node.id,
+			children: [],
+			internal: {
+				type: "BlogPost",
+				contentDigest: crypto
+					.createHash("md5")
+					.update(JSON.stringify(fieldData))
+					.digest("hex"),
+				content: JSON.stringify(fieldData),
+				description: "Blog Posts"
+			}
+		});
+		createParentChildLink({ parent: fileNode, child: node });
+	}
 };

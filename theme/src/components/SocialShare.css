@@ -1,0 +1,23 @@
+.social-share {
+	position: fixed;
+	top: 150px;
+	left: calc(50% - 500px);
+}
+
+.social-share ul {
+	list-style: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.social-share ul li a {
+	height: 30px;
+	display: flex;
+	align-items: center;
+}
+
+.social-share ul li a svg {
+	width: 18px;
+}

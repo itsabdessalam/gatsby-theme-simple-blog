@@ -2,30 +2,38 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Styled } from "theme-ui";
 import { Link } from "gatsby";
+import ThemeSwitcher from "../components/ThemeSwitcher";
 import "./Nav.css";
 
-const Nav = ({ title, links }) => (
-  <nav className="navbar">
-    <div className="logo">
-      <Link to={"/"}>
-        <div className="logo-inner">
-          <h1>{title}</h1>
-        </div>
-      </Link>
-    </div>
-    <Styled.ul className="nav-links">
-      {links.map((link, id) => (
-        <li key={id}>
-          <Link to={link.link}>{link.text}</Link>
-        </li>
-      ))}
-    </Styled.ul>
-  </nav>
-);
+const Nav = ({ title, links }) => {
+	return (
+		<nav className="navbar">
+			<div className="logo">
+				<Link to={"/"}>
+					<div className="logo-inner">
+						<Styled.h1>{title}</Styled.h1>
+					</div>
+				</Link>
+			</div>
+			{links && (
+				<Styled.ul className="nav-links">
+					{links.map((link, index) => {
+						return (
+							<li key={index.toString()}>
+								<Link to={link.link}>{link.text}</Link>
+							</li>
+						);
+					})}
+					<ThemeSwitcher></ThemeSwitcher>
+				</Styled.ul>
+			)}
+		</nav>
+	);
+};
 
 Nav.propTypes = {
-  links: PropTypes.array,
-  title: PropTypes.string
+	links: PropTypes.array,
+	title: PropTypes.string
 };
 
 Nav.defaultProps = { links: [], title: "Blog title" };
