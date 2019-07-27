@@ -4,7 +4,7 @@ module.exports = {
 			return String.fromCharCode(dec);
 		});
 	},
-	slugify: string => {
+	slugify: str => {
 		const a =
 			"àáäâãåăæąçćčđďèéěėëêęğǵḧìíïîįłḿǹńňñòóöôœøṕŕřßşśšșťțùúüûǘůűūųẃẍÿýźžż·/_,:;";
 		const b =
@@ -24,8 +24,8 @@ module.exports = {
 			.replace(/^-+/, "")
 			.replace(/-+$/, "");
 	},
-	splitCamelCase: value => {
-		return value
+	splitCamelCase: str => {
+		return str
 			.replace(/([a-z])([A-Z])/g, "$1 $2")
 			.split(" ")
 			.map(item => {
