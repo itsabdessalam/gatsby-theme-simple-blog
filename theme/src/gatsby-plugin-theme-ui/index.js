@@ -6,25 +6,27 @@ const colors = {
 	background: "#ffffff",
 	primary: "#4185fd",
 	secondary: "#62acff",
-	lightGray: "#dfe2e5",
-	gray: "#636d78",
-	modes: {
-		dark: {
-			heading: "#ffffff",
-			text: "#d3d4d4",
-			background: "#081523",
-			primary: "#4185fd",
-			secondary: "#62acff",
-			lightGray: "#dfe2e5",
-			gray: "#ffffff"
-		}
-	}
+	lightGray: "#f6f8fa",
+	gray: "#636d78"
 };
 
 export default {
 	initialColorMode: "light",
 	useCustomProperties: true,
-	colors,
+	colors: {
+		...colors,
+		modes: {
+			dark: {
+				heading: "#ffffff",
+				text: "#d3d4d4",
+				background: "#081523",
+				primary: "#4185fd",
+				secondary: "#62acff",
+				lightGray: hexToRgba(colors.lightGray, 0.1),
+				gray: "#ffffff"
+			}
+		}
+	},
 	buttons: {
 		primary: {
 			color: "#ffffff",
@@ -106,14 +108,60 @@ export default {
 			padding: 10
 		},
 		ul: {
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "space-between",
-			listStyle: "none"
+			padding: "0 15px"
+		},
+		ol: {
+			padding: "0 15px"
 		},
 		a: {
 			textDecoration: "none",
 			transition: "all 0.2s cubic-bezier(0.75, 0, 0.08, 1) 0s"
+		},
+		table: {
+			width: "100%",
+			color: "text",
+			fontWeight: "text",
+			"*, :after, :before": {
+				border: "0 solid #e2e8f0"
+			}
+		},
+		th: {
+			fontWeight: "heading",
+			backgroundColor: hexToRgba(colors.primary, 0.2),
+			textAlign: "left",
+			margin: 0,
+			padding: "6px 13px"
+		},
+		tr: {
+			backgroundColor: "background",
+			margin: "0",
+			padding: "0",
+			"&:first-of-type": {
+				marginTop: 0
+			},
+			"&:nth-of-type(2n)": {
+				backgroundColor: "lightGray"
+			},
+			"&:last-child": {
+				marginBottom: 0
+			}
+		},
+		td: {
+			textAlign: "left",
+			margin: 0,
+			padding: "6px 13px",
+			"&:first-of-type": {
+				marginTop: 0
+			},
+			"&:last-child": {
+				marginBottom: 0
+			}
+		},
+		em: {
+			color: "gray",
+			textAlign: "center",
+			margin: "auto",
+			display: "block"
 		},
 		h1: {
 			color: "heading",

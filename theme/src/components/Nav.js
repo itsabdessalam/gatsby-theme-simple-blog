@@ -18,7 +18,15 @@ const Nav = ({ title, links }) => {
 				</Link>
 			</div>
 			{links && (
-				<Styled.ul className="nav-links">
+				<Styled.ul
+					sx={{
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "space-between",
+						listStyle: "none"
+					}}
+					className="nav-links"
+				>
 					{links.map((link, index) => {
 						return (
 							<li key={index.toString()}>

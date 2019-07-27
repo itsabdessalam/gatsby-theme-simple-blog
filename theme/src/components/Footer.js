@@ -18,7 +18,15 @@ const Footer = ({ socialLinks }) => {
 				>
 					© 2019, Built with Gatsby
 				</div>
-				<Styled.ul className="social-links">
+				<Styled.ul
+					sx={{
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "space-between",
+						listStyle: "none"
+					}}
+					className="social-links"
+				>
 					{socialLinks.map((link, index) => {
 						return (
 							<li key={index.toString()}>

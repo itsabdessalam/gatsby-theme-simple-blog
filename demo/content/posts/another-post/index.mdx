@@ -13,8 +13,16 @@ tags:
 
 > Aut dicta possimus sint mollitia voluptas commodi quo doloremque
 
+
 Ut aspernatur corporis harum nihil quis provident sequi mollitia nobis aliquid molestiae perspiciatis et ea nemo ab reprehenderit accusantium quas voluptate dolores velit et doloremque molestiae
 Ut aspernatur corporis harum nihil quis provident sequi mollitia nobis aliquid molestiae perspiciatis et ea nemo ab reprehenderit accusantium quas voluptate dolores velit et doloremque molestiae
+
+# h1 Heading
+## h2 Heading
+### h3 Heading
+#### h4 Heading
+##### h5 Heading
+###### h6 Heading
 
 ```js{4-8}
 module.exports = options => {
@@ -42,5 +50,26 @@ module.exports = options => {
 };
 ```
 
-
 This is an inline code `console.log("JavaScript");`
+
+## Lists
+
++ Create a list by starting a line with `+`, `-`, or `*`
++ Sub-lists are made by indenting 2 spaces:
+  - Marker character change forces new list start:
+    * Ac tristique libero volutpat at
+    + Facilisis in pretium nisl aliquet
+    - Nulla volutpat aliquam velit
++ Very easy!
+
+## Tables
+
+| Option | Description |
+| ------ | ----------- |
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |
+
+
+![Create a blog with gatsbyjs](https://abdessalam-benharira.me/assets/images/2018/08/blog-gatsby-wordpress.jpg)
+*Create a blog with gatsbyjs img caption*
