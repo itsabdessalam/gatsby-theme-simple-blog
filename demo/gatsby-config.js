@@ -14,30 +14,25 @@ module.exports = {
     socialLinks: [
       {
         text: "Twitter",
-        link: "https://twitter.com/gatsbyjs",
-        external: false
+        link: "https://twitter.com/gatsbyjs"
       },
       {
         text: "GitHub",
-        link: "https://github.com/gatsbyjs",
-        external: false
+        link: "https://github.com/gatsbyjs"
       }
     ],
     navLinks: [
       {
-        text: "Link 1",
-        link: "/",
-        external: false
+        text: "Home",
+        link: "/"
       },
       {
-        text: "Link 2",
-        link: "/",
-        external: false
+        text: "About",
+        link: "/about"
       },
       {
-        text: "Link 3",
-        link: "/",
-        external: false
+        text: "Contact",
+        link: "/contact"
       }
     ],
     themeConfig: {

@@ -11,7 +11,7 @@ module.exports = {
 			"aaaaaaaaacccddeeeeeeegghiiiiilmnnnnooooooprrsssssttuuuuuuuuuwxyyzzz------";
 		const p = new RegExp(a.split("").join("|"), "g");
 
-		return string
+		return str
 			.toString()
 			.toLowerCase()
 			.replace(/\s+/g, "-")
