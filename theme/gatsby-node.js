@@ -177,7 +177,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 	const posts = mdxPosts.edges;
 	const tags = mdxPostTags.distinct;
 	const pages = mdxPages.edges;
-	const { title: siteTitle, url: siteURL, themeConfig } = siteMetadata;
+	const {
+		title: siteTitle,
+		url: siteURL,
+		themeConfig,
+		locale
+	} = siteMetadata;
 
 	// Single pages
 	posts.forEach(({ node: post }, index) => {
@@ -192,7 +197,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 				siteURL,
 				previous,
 				next,
-				themeConfig
+				themeConfig,
+				locale,
+				tagsPath
 			}
 		});
 	});
@@ -204,7 +211,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 			component: TagTemplate,
 			context: {
 				tag,
-				themeConfig
+				themeConfig,
+				locale,
+				tagsPath
 			}
 		});
 	});
@@ -219,7 +228,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 				...page,
 				siteTitle,
 				siteURL,
-				themeConfig
+				themeConfig,
+				locale,
+				tagsPath
 			}
 		});
 	});
@@ -232,7 +243,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 			posts,
 			siteTitle,
 			siteURL,
-			themeConfig
+			themeConfig,
+			locale,
+			tagsPath
 		}
 	});
 };

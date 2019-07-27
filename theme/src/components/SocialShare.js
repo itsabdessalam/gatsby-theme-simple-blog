@@ -73,7 +73,6 @@ const SocialShare = ({ siteURL, postTitle, postSlug }) => {
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							id="Layer_1"
 							width="32px"
 							height="32px"
 							enableBackground="new 0 0 32 32"
@@ -110,7 +109,6 @@ const SocialShare = ({ siteURL, postTitle, postSlug }) => {
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							id="Layer_1"
 							width="32px"
 							height="32px"
 							enableBackground="new 0 0 32 32"

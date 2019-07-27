@@ -1,21 +1,20 @@
 /** @jsx jsx */
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
-import { Link } from "gatsby";
+import PropTypes from "prop-types";
+import Link from "../components/Link";
 import { jsx, Styled } from "theme-ui";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import { slugify, formatDate } from "../utils/helpers";
 
 import "./PostList.css";
-const PostList = ({ posts, themeConfig }) => {
-	console.log({ themeConfig });
+const PostList = ({ posts, themeConfig, locale, tagsPath }) => {
+	const { loadMorePosts } = themeConfig;
 	const [postsPerPage, setPostsPerPage] = useState(
-		themeConfig.loadMorePosts ? themeConfig.postsPerPage : posts.length
+		loadMorePosts ? themeConfig.postsPerPage : posts.length
 	);
-	const [postsIncrementBy, setPostsIncrementBy] = useState(
-		themeConfig.postsIncrementBy
-	);
+	const [postsIncrementBy] = useState(themeConfig.postsIncrementBy);
 	const [counter, setCounter] = useState(0);
 
 	useEffect(() => {
@@ -38,15 +37,22 @@ const PostList = ({ posts, themeConfig }) => {
 							<div className="post" key={index.toString()}>
 								<div className="post-content">
 									<div className="post-meta">
-										<span className="post-date">
-											{formatDate(node.date, "en-US")}
+										<span
+											s
+											sx={{
+												color: "gray"
+											}}
+											className="post-date"
+										>
+											{formatDate(node.date, locale)}
 										</span>
 										<Link
 											className="post-link"
 											to={`${node.slug}`}
 											style={{ textDecoration: "none" }}
 										>
-											<h3
+											<Styled.h3
+												sx={{ fontSize: 2 }}
 												className="post-title"
 												dangerouslySetInnerHTML={{
 													__html: node.title
@@ -58,7 +64,9 @@ const PostList = ({ posts, themeConfig }) => {
 										{node.tags.map((tag, index) => {
 											return (
 												<Link
-													to={`/tags/${slugify(tag)}`}
+													to={`${tagsPath}/${slugify(
+														tag
+													)}`}
 													key={index.toString()}
 												>
 													{tag}
@@ -70,10 +78,10 @@ const PostList = ({ posts, themeConfig }) => {
 							</div>
 						);
 					})}
-					{counter < posts.length && (
+					{counter < posts.length && loadMorePosts && (
 						<div className="load-more-wrapper">
 							<button
-								sx={{ variant: "buttons.secondary" }}
+								sx={{ variant: "buttons.primary" }}
 								tabIndex={0}
 								onClick={loadMore}
 								onKeyUp={() => {
@@ -91,4 +99,10 @@ const PostList = ({ posts, themeConfig }) => {
 	);
 };
 
+PostList.propTypes = {
+	posts: PropTypes.array.isRequired,
+	themeConfig: PropTypes.string.isRequired,
+	locale: PropTypes.string,
+	tagsPath: PropTypes.string.isRequired
+};
 export default PostList;

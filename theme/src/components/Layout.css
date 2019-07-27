@@ -8,7 +8,6 @@ body .main-content {
 }
 
 body blockquote {
-	color: #6a737d;
 	padding: 2px 16px;
 	border-left: 4px solid#dfe2e5;
 	margin: 16px 0;
@@ -26,6 +25,7 @@ a.anchor-header {
 	opacity: 0;
 	visibility: hidden;
 	height: 0;
+	transition: all 0.2s cubic-bezier(0.75, 0, 0.08, 1) 0s;
 }
 
 hr {

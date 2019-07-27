@@ -9,7 +9,7 @@ module.exports = options => {
 			title: "Blog Title Placeholder",
 			author: "Name Placeholder",
 			description: "Description placeholder",
-			locale: "en-US",
+			locale: "en",
 			socialLinks: [
 				{
 					text: "Twitter",

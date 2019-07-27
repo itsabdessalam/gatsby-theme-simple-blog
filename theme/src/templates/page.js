@@ -2,8 +2,15 @@ import React from "react";
 import { graphql } from "gatsby";
 import Page from "../components/Page";
 
-const PageTemplate = ({ data, pageContext: { siteURL } }) => {
-	return <Page data={data} siteURL={siteURL} />;
+const PageTemplate = ({ data, pageContext: { siteURL, locale, tagsPath } }) => {
+	return (
+		<Page
+			data={data}
+			locale={locale}
+			siteURL={siteURL}
+			tagsPath={tagsPath}
+		/>
+	);
 };
 
 export default PageTemplate;

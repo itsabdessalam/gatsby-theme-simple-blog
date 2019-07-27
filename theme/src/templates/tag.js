@@ -2,9 +2,17 @@ import React from "react";
 import { graphql } from "gatsby";
 import PostList from "../components/PostList";
 
-const PostsTemplate = ({ data, pageContext: { themeConfig } }) => {
+const PostsTemplate = ({
+	data,
+	pageContext: { locale, themeConfig, tagsPath }
+}) => {
 	return (
-		<PostList posts={data.allBlogPost.edges} themeConfig={themeConfig} />
+		<PostList
+			posts={data.allBlogPost.edges}
+			locale={locale}
+			themeConfig={themeConfig}
+			tagsPath={tagsPath}
+		/>
 	);
 };
 

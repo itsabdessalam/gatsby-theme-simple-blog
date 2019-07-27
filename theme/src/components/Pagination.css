@@ -1,0 +1,14 @@
+.pagination .previous,
+.pagination .next {
+	width: 50%;
+}
+
+.pagination .next {
+	float: right;
+	text-align: right;
+}
+
+.pagination .previous {
+	float: left;
+	text-align: left;
+}

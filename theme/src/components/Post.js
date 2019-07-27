@@ -1,15 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import Img from "gatsby-image";
 import { Styled } from "theme-ui";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
+import Link from "../components/Link";
 import Pagination from "../components/Pagination";
 import SocialShare from "../components/SocialShare";
-import { formatDate } from "../utils/helpers";
+import { slugify, formatDate } from "../utils/helpers";
 import "./Post.css";
 
-const Post = ({ data, siteURL, next, previous }) => {
+const Post = ({ data, siteURL, locale, tagsPath, next, previous }) => {
 	const post = data.blogPost;
 	const mediaImg = post.media && post.media.childImageSharp;
 	const timeToRead = post.parent && post.parent.timeToRead;
@@ -42,7 +44,7 @@ const Post = ({ data, siteURL, next, previous }) => {
 							</div>
 							<div>
 								<span className="post-date">
-									{formatDate(post.date, "en-US")}
+									{formatDate(post.date, locale)}
 								</span>
 								<span className="separator">•</span>
 								<span className="reading-time">{`${timeToRead} min`}</span>
@@ -57,10 +59,34 @@ const Post = ({ data, siteURL, next, previous }) => {
 					<div className="post-content">
 						<MDXRenderer>{post.body}</MDXRenderer>
 					</div>
+
+					<div className="post-tags">
+						{post.tags.map((tag, index) => {
+							return (
+								<Link
+									to={`${tagsPath}/${slugify(tag)}`}
+									key={index.toString()}
+								>
+									{tag}
+								</Link>
+							);
+						})}
+					</div>
+
 					<Pagination next={next} previous={previous} />
 				</div>
 			</div>
 		</Layout>
 	);
 };
+
+Post.propTypes = {
+	data: PropTypes.object.isRequired,
+	siteURL: PropTypes.string.isRequired,
+	locale: PropTypes.string,
+	tagsPath: PropTypes.string.isRequired,
+	previous: PropTypes.object.isRequired,
+	next: PropTypes.object.isRequired
+};
+
 export default Post;

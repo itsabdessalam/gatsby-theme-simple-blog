@@ -1,11 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Styled } from "theme-ui";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import "./Page.css";
 
-const Page = ({ data, siteURL }) => {
+const Page = ({ data }) => {
 	const page = data.blogPost;
 
 	return (
@@ -28,4 +29,9 @@ const Page = ({ data, siteURL }) => {
 		</Layout>
 	);
 };
+
+Page.propTypes = {
+	data: PropTypes.object.isRequired
+};
+
 export default Page;

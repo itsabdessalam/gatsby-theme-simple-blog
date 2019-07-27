@@ -16,7 +16,7 @@ const colors = {
 			primary: "#4185fd",
 			secondary: "#62acff",
 			lightGray: "#dfe2e5",
-			gray: "#636d78"
+			gray: "#ffffff"
 		}
 	}
 };
@@ -49,12 +49,32 @@ export default {
 			cursor: "pointer"
 		}
 	},
+	links: {
+		primary: {
+			color: "primary",
+			"&:hover, &:focus": {
+				color: "secondary"
+			}
+		},
+		secondary: {
+			color: "primary",
+			"&:hover, &:focus": {
+				color: "secondary"
+			}
+		},
+		gray: {
+			color: "gray",
+			"&:hover, &:focus": {
+				color: "secondary"
+			}
+		}
+	},
 	fonts: {
 		default:
 			// eslint-disable-next-line prettier/prettier
 			"-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\""
 	},
-	fontSizes: [16, 18, 20, 22, 27, 36],
+	fontSizes: [16, 18, 20, 24, 32, 40],
 	fontWeights: {
 		text: "400",
 		heading: "600"
@@ -93,40 +113,43 @@ export default {
 		},
 		a: {
 			textDecoration: "none",
-			color: "primary",
-			"&:hover, &:focus": {
-				color: "secondary"
-			}
+			transition: "all 0.2s cubic-bezier(0.75, 0, 0.08, 1) 0s"
 		},
 		h1: {
 			color: "heading",
 			fontWeight: "heading",
-			fontSize: 5
+			fontSize: 5,
+			transition: "all 0.2s cubic-bezier(0.75, 0, 0.08, 1) 0s"
 		},
 		h2: {
 			color: "heading",
 			fontWeight: "heading",
-			fontSize: 4
+			fontSize: 4,
+			transition: "all 0.2s cubic-bezier(0.75, 0, 0.08, 1) 0s"
 		},
 		h3: {
 			color: "heading",
 			fontWeight: "heading",
-			fontSize: 3
+			fontSize: 3,
+			transition: "all 0.2s cubic-bezier(0.75, 0, 0.08, 1) 0s"
 		},
 		h4: {
 			color: "heading",
 			fontWeight: "heading",
-			fontSize: 2
+			fontSize: 2,
+			transition: "all 0.2s cubic-bezier(0.75, 0, 0.08, 1) 0s"
 		},
 		h5: {
 			color: "heading",
 			fontWeight: "heading",
-			fontSize: 1
+			fontSize: 1,
+			transition: "all 0.2s cubic-bezier(0.75, 0, 0.08, 1) 0s"
 		},
 		h6: {
 			color: "heading",
 			fontWeight: "heading",
-			fontSize: 0
+			fontSize: 0,
+			transition: "all 0.2s cubic-bezier(0.75, 0, 0.08, 1) 0s"
 		}
 	}
 };

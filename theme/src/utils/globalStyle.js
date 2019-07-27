@@ -4,6 +4,10 @@ importAll(require.context("../assets/", true, /\.css$/));
 
 export const setGlobalStyle = style => {
 	return `
+    ::selection {
+        background: ${style.colors.primary};
+        color: #ffffff;
+    }
     .gatsby-highlight-code-line {
         background-color: #3a3f46;
         display: block;
@@ -14,6 +18,9 @@ export const setGlobalStyle = style => {
         border-left: 0.5em solid ${style.colors.primary};
     }
     :not(pre) > code[class*="language-"] {
+        color: ${style.colors.primary};
+    }
+    a.anchor-header{
         color: ${style.colors.primary};
     }`;
 };

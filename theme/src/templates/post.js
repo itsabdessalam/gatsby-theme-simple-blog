@@ -2,9 +2,19 @@ import React from "react";
 import { graphql } from "gatsby";
 import Post from "../components/Post";
 
-const PostTemplate = ({ data, pageContext: { siteURL, previous, next } }) => {
+const PostTemplate = ({
+	data,
+	pageContext: { siteURL, locale, tagsPath, previous, next }
+}) => {
 	return (
-		<Post data={data} siteURL={siteURL} previous={previous} next={next} />
+		<Post
+			data={data}
+			siteURL={siteURL}
+			locale={locale}
+			previous={previous}
+			next={next}
+			tagsPath={tagsPath}
+		/>
 	);
 };
 
@@ -25,6 +35,7 @@ export const pageQuery = graphql`
 			slug
 			excerpt
 			body
+			tags
 			media {
 				childImageSharp {
 					fluid(maxWidth: 1000) {

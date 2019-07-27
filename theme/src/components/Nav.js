@@ -1,6 +1,8 @@
+/** @jsx jsx */
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
-import { Styled } from "theme-ui";
+import { jsx, Styled } from "theme-ui";
 import Link from "../components/Link";
 import ThemeSwitcher from "../components/ThemeSwitcher";
 import "./Nav.css";
@@ -20,7 +22,13 @@ const Nav = ({ title, links }) => {
 					{links.map((link, index) => {
 						return (
 							<li key={index.toString()}>
-								<Link to={link.link}>{link.text}</Link>
+								<Styled.a
+									sx={{ variant: "links.gray" }}
+									as={Link}
+									to={link.link}
+								>
+									{link.text}
+								</Styled.a>
 							</li>
 						);
 					})}
