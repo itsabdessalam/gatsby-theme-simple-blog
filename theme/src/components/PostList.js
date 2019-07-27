@@ -38,7 +38,6 @@ const PostList = ({ posts, themeConfig, locale, tagsPath }) => {
 								<div className="post-content">
 									<div className="post-meta">
 										<span
-											s
 											sx={{
 												color: "gray"
 											}}
@@ -101,7 +100,7 @@ const PostList = ({ posts, themeConfig, locale, tagsPath }) => {
 
 PostList.propTypes = {
 	posts: PropTypes.array.isRequired,
-	themeConfig: PropTypes.string.isRequired,
+	themeConfig: PropTypes.object.isRequired,
 	locale: PropTypes.string,
 	tagsPath: PropTypes.string.isRequired
 };

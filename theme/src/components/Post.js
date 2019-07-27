@@ -19,6 +19,7 @@ const Post = ({ data, siteURL, locale, tagsPath, next, previous }) => {
 	return (
 		<Layout cssClass="single-post blog-style">
 			<SEO
+				lang={locale}
 				title={post.title}
 				description={post.excerpt.substring(0, 250)}
 			/>
@@ -85,8 +86,8 @@ Post.propTypes = {
 	siteURL: PropTypes.string.isRequired,
 	locale: PropTypes.string,
 	tagsPath: PropTypes.string.isRequired,
-	previous: PropTypes.object.isRequired,
-	next: PropTypes.object.isRequired
+	previous: PropTypes.object,
+	next: PropTypes.object
 };
 
 export default Post;

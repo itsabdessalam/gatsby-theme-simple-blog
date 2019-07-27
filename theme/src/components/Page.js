@@ -6,12 +6,13 @@ import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import "./Page.css";
 
-const Page = ({ data }) => {
+const Page = ({ data, locale }) => {
 	const page = data.blogPost;
 
 	return (
 		<Layout cssClass="single-page blog-style">
 			<SEO
+				lang={locale}
 				title={page.title}
 				description={page.excerpt.substring(0, 250)}
 			/>
@@ -31,7 +32,8 @@ const Page = ({ data }) => {
 };
 
 Page.propTypes = {
-	data: PropTypes.object.isRequired
+	data: PropTypes.object.isRequired,
+	locale: PropTypes.string
 };
 
 export default Page;

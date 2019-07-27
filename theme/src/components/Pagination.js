@@ -42,8 +42,8 @@ const Pagination = ({ previous, next }) => {
 };
 
 Pagination.propTypes = {
-	previous: PropTypes.object.isRequired,
-	next: PropTypes.object.isRequired
+	previous: PropTypes.object,
+	next: PropTypes.object
 };
 
 export default Pagination;
