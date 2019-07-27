@@ -3,7 +3,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { jsx, Styled } from "theme-ui";
-import utils from "../utils";
+import utils from "../utils/helpers";
 import "./SocialShare.css";
 
 const SocialShare = ({ siteURL, postTitle, postSlug }) => {

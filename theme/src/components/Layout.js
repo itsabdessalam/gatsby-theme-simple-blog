@@ -1,12 +1,17 @@
 import { React } from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import { Layout as StyledLayout, Main, Container } from "theme-ui";
+import { css, Global } from "@emotion/core";
+import { Layout as StyledLayout, Main, Container, useThemeUI } from "theme-ui";
+import { setGlobalStyle } from "../utils/globalStyle";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "./Layout.css";
 
 const Layout = ({ children, cssClass }) => {
+	const context = useThemeUI();
+	const theme = context.theme;
+
 	const { site } = useStaticQuery(
 		graphql`
 			query {
@@ -31,6 +36,11 @@ const Layout = ({ children, cssClass }) => {
 
 	return (
 		<StyledLayout className={cssClass}>
+			<Global
+				styles={css`
+					${setGlobalStyle(theme)}
+				`}
+			/>
 			<Header
 				siteTitle={siteMetadata.title}
 				navLinks={siteMetadata.navLinks}

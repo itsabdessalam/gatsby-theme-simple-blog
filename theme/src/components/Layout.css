@@ -28,9 +28,99 @@ a.anchor-header {
 	height: 0;
 }
 
+hr {
+	border: 0 none;
+	color: #cccccc;
+	height: 4px;
+	padding: 0;
+}
+
+ul,
+ol {
+	padding: 0;
+}
+
+dl dt {
+	font-size: 14px;
+	font-weight: bold;
+	font-style: italic;
+	padding: 0;
+	margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+	padding: 0;
+}
+
+dl dt > :first-child {
+	margin-top: 0;
+}
+
+dl dt > :last-child {
+	margin-bottom: 0;
+}
+
+dl dd {
+	margin: 0 0 15px;
+	padding: 0 15px;
+}
+
+dl dd > :first-child {
+	margin-top: 0;
+}
+
+dl dd > :last-child {
+	margin-bottom: 0;
+}
+
+table {
+	padding: 0;
+}
+
+table tr {
+	border-top: 1px solid #cccccc;
+	background-color: #ffffff;
+	margin: 0;
+	padding: 0;
+}
+
+table tr:nth-child(2n) {
+	background-color: #f8f8f8;
+}
+
+table tr th {
+	font-weight: bold;
+	border: 1px solid #cccccc;
+	text-align: left;
+	margin: 0;
+	padding: 6px 13px;
+}
+
+table tr td {
+	border: 1px solid #cccccc;
+	text-align: left;
+	margin: 0;
+	padding: 6px 13px;
+}
+
+table tr th :first-child,
+table tr td :first-child {
+	margin-top: 0;
+}
+
+table tr th :last-child,
+table tr td :last-child {
+	margin-bottom: 0;
+}
+
+img {
+	max-width: 100%;
+}
+
 a.anchor-header svg {
 	fill: currentColor;
 }
+
 h1:hover a.anchor-header,
 h2:hover a.anchor-header,
 h3:hover a.anchor-header,
@@ -40,229 +130,4 @@ h6:hover a.anchor-header {
 	opacity: 1;
 	visibility: visible;
 	height: inherit;
-}
-
-/* prism */
-code[class*="language-"],
-pre[class*="language-"] {
-	color: #ffffff;
-	background: 0 0;
-	font-family: "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
-	text-align: left;
-	white-space: pre-wrap;
-	word-spacing: normal;
-	word-break: break-word;
-	word-wrap: break-word;
-	line-height: 1.5;
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
-	-webkit-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
-	position: relative;
-}
-
-pre[class*="language-"] {
-	padding: 1em;
-	margin: 0.5em 0 30px;
-	overflow: auto;
-	border-radius: 3px;
-}
-
-code[class*="language-"] {
-	font-size: 14px;
-}
-
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-	background: #282c34;
-}
-
-:not(pre) > code[class*="language-"] {
-	padding: 2px 4px;
-	border-radius: 0.3em;
-	white-space: normal;
-	color: #4185fd;
-	background: #f5f8fa;
-}
-
-pre::before {
-	position: absolute;
-	z-index: 3;
-	top: 0.8em;
-	right: 1em;
-	font-size: 0.75rem;
-	color: rgba(255, 255, 255, 0.4);
-}
-
-pre[class~="language-javascript"]::before,
-pre[class~="language-js"]::before {
-	content: "js";
-}
-
-pre[class~="language-jsx"]::before {
-	content: "jsx";
-}
-
-pre[class~="language-ts"]::before,
-pre[class~="language-typescript"]::before {
-	content: "ts";
-}
-
-pre[class~="language-html"]::before,
-pre[class~="language-markup"]::before {
-	content: "html";
-}
-
-pre[class~="language-markdown"]::before,
-pre[class~="language-md"]::before {
-	content: "md";
-}
-
-pre[class~="language-vue"]::before {
-	content: "vue";
-}
-
-pre[class~="language-css"]::before {
-	content: "css";
-}
-
-pre[class~="language-sass"]::before {
-	content: "sass";
-}
-
-pre[class~="language-scss"]::before {
-	content: "scss";
-}
-
-pre[class~="language-less"]::before {
-	content: "less";
-}
-
-pre[class~="language-stylus"]::before {
-	content: "stylus";
-}
-
-pre[class~="language-go"]::before {
-	content: "go";
-}
-
-pre[class~="language-java"]::before {
-	content: "java";
-}
-
-pre[class~="language-c"]::before {
-	content: "c";
-}
-
-pre[class~="language-bash"]::before,
-pre[class~="language-sh"]::before {
-	content: "sh";
-}
-
-pre[class~="language-yaml"]::before {
-	content: "yaml";
-}
-
-pre[class~="language-py"]::before,
-pre[class~="language-python"]::before {
-	content: "py";
-}
-
-pre[class~="language-json"]::before {
-	content: "json";
-}
-
-pre[class~="language-ruby"]::before {
-	content: "rb";
-}
-
-pre[class~="language-php"]::before {
-	content: "php";
-}
-
-.token.block-comment,
-.token.cdata,
-.token.comment,
-.token.doctype,
-.token.prolog {
-	color: #999999;
-}
-
-.token.punctuation {
-	color: #cccccc;
-}
-
-.token.attr-name,
-.token.deleted,
-.token.namespace,
-.token.tag {
-	color: #e2777a;
-}
-
-.token.function-name {
-	color: #6196cc;
-}
-
-.token.boolean,
-.token.function,
-.token.number {
-	color: #f08d49;
-}
-
-.token.class-name,
-.token.constant,
-.token.property,
-.token.symbol {
-	color: #f8c555;
-}
-
-.token.atrule,
-.token.builtin,
-.token.important,
-.token.keyword,
-.token.selector {
-	color: #cc99cd;
-}
-
-.token.attr-value,
-.token.char,
-.token.regex,
-.token.string,
-.token.variable {
-	color: #7ec699;
-}
-
-.token.entity,
-.token.operator,
-.token.url {
-	color: #67cdcc;
-}
-
-.token.bold,
-.token.important {
-	font-weight: 700;
-}
-
-.token.italic {
-	font-style: italic;
-}
-
-.token.entity {
-	cursor: help;
-}
-
-.token.inserted {
-	color: #008000;
-}
-
-.gatsby-highlight-code-line {
-	background-color: #3a3f46;
-	display: block;
-	margin-right: -1.4125em;
-	margin-left: -1.4125em;
-	padding-right: 1em;
-	padding-left: 0.75em;
-	border-left: 0.5em solid #4185fd;
 }

@@ -7,17 +7,22 @@ export default {
 	initialColorMode: "light",
 	useCustomProperties: true,
 	colors: {
+		heading: "#3a3f46",
 		text: "#3a3f46",
 		background: "#ffffff",
 		primary: "#4185fd",
 		secondary: "#62acff",
-		gray: "#dfe2e5",
+		lightGray: "#dfe2e5",
+		gray: "#636d78",
 		modes: {
 			dark: {
+				heading: "#ffffff",
 				text: "#d3d4d4",
 				background: "#081523",
 				primary: "#4185fd",
-				secondary: "#62acff"
+				secondary: "#62acff",
+				lightGray: "#dfe2e5",
+				gray: "#636d78"
 			}
 		}
 	},
@@ -71,32 +76,32 @@ export default {
 			}
 		},
 		h1: {
-			color: "text",
+			color: "heading",
 			fontWeight: 600,
 			fontSize: 5
 		},
 		h2: {
-			color: "text",
+			color: "heading",
 			fontWeight: 600,
 			fontSize: 4
 		},
 		h3: {
-			color: "text",
+			color: "heading",
 			fontWeight: 600,
 			fontSize: 3
 		},
 		h4: {
-			color: "text",
+			color: "heading",
 			fontWeight: 600,
 			fontSize: 2
 		},
 		h5: {
-			color: "text",
+			color: "heading",
 			fontWeight: 600,
 			fontSize: 1
 		},
 		h6: {
-			color: "text",
+			color: "heading",
 			fontWeight: 600,
 			fontSize: 0
 		}

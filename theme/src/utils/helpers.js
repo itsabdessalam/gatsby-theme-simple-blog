@@ -41,5 +41,19 @@ module.exports = {
 			month: "long",
 			day: "numeric"
 		});
+	},
+	hexToRgba: (hexValue, alphaValue) => {
+		const pattern = /^#?([a-f\d])([a-f\d])([a-f\d])$/i,
+			hex = hexValue.replace(pattern, (m, r, g, b) => {
+				return r + r + g + g + b + b;
+			}),
+			rgb = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex),
+			r = parseInt(rgb[1], 16),
+			g = parseInt(rgb[2], 16),
+			b = parseInt(rgb[3], 16);
+		return `rgba(${r},${g},${b}, ${alphaValue})`;
+	},
+	importAll: req => {
+		req.keys().forEach(req);
 	}
 };

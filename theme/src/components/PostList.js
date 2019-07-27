@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import { Styled } from "theme-ui";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import { slugify, formatDate } from "../utils";
+import { slugify, formatDate } from "../utils/helpers";
 
 import "./PostList.css";
 const PostList = ({ posts }) => {

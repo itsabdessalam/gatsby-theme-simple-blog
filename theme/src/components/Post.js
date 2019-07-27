@@ -6,7 +6,7 @@ import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import Pagination from "../components/Pagination";
 import SocialShare from "../components/SocialShare";
-import { formatDate } from "../utils";
+import { formatDate } from "../utils/helpers";
 import "./Post.css";
 
 const Post = ({ data, siteURL, next, previous }) => {

@@ -6,10 +6,6 @@
 	font-size: 16px;
 }
 
-.footer .footer-inner .copyright {
-	color: #636d78;
-}
-
 .footer .footer-inner .social-links li:not(:last-child) {
 	margin-right: 10px;
 }

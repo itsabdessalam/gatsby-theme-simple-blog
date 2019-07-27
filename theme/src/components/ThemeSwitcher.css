@@ -7,7 +7,7 @@
 	margin-right: 8px;
 	padding: 0;
 	border: none;
-	background: rgba(97, 149, 251, 0.2);
+	background: transparent;
 	border-radius: 30px;
 	cursor: pointer;
 }
@@ -19,7 +19,7 @@
 	left: 12px;
 	width: 16px;
 	height: 16px;
-	background: #4185fd;
+	background: transparent;
 	-webkit-transform: translateZ(0px) translate(-50%, -50%);
 	transform: translateZ(0px) translate(-50%, -50%);
 	border-radius: 30px;

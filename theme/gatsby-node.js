@@ -3,7 +3,7 @@ const path = require("path");
 const mkdirp = require("mkdirp");
 const crypto = require("crypto");
 const { urlResolve } = require("gatsby-core-utils");
-const { slugify } = require("./src/utils");
+const { slugify } = require("./src/utils/helpers");
 
 let basePath;
 let tagsPath;
