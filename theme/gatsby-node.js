@@ -108,6 +108,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 						showNavLinks
 						themeSwitcher
 						readingTime
+						postsPerPage
+						postsIncrementBy
 					}
 				}
 			}
@@ -175,7 +177,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 	const posts = mdxPosts.edges;
 	const tags = mdxPostTags.distinct;
 	const pages = mdxPages.edges;
-	const { title: siteTitle, url: siteURL } = siteMetadata;
+	const { title: siteTitle, url: siteURL, themeConfig } = siteMetadata;
 
 	// Single pages
 	posts.forEach(({ node: post }, index) => {
@@ -189,7 +191,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 				...post,
 				siteURL,
 				previous,
-				next
+				next,
+				themeConfig
 			}
 		});
 	});
@@ -200,7 +203,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 			path: `${tagsPath}/${slugify(tag)}`,
 			component: TagTemplate,
 			context: {
-				tag
+				tag,
+				themeConfig
 			}
 		});
 	});
@@ -214,7 +218,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 			context: {
 				...page,
 				siteTitle,
-				siteURL
+				siteURL,
+				themeConfig
 			}
 		});
 	});
@@ -226,7 +231,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 		context: {
 			posts,
 			siteTitle,
-			siteURL
+			siteURL,
+			themeConfig
 		}
 	});
 };

@@ -38,7 +38,9 @@ module.exports = options => {
 				themeSwitcher: true,
 				showNavLinks: true,
 				readingTime: true,
-				loadMorePosts: true
+				loadMorePosts: true,
+				postsPerPage: 10,
+				postsIncrementBy: 5
 			}
 		},
 		plugins: [

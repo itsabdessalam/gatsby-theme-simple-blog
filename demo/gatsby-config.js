@@ -39,7 +39,9 @@ module.exports = {
       themeSwitcher: true,
       showNavLinks: true,
       readingTime: true,
-      loadMorePosts: true
+      loadMorePosts: false,
+      postsPerPage: 10,
+      postsIncrementBy: 5
     }
   }
 };

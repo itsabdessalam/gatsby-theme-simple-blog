@@ -1,19 +1,39 @@
-import React from "react";
+/** @jsx jsx */
+// eslint-disable-next-line no-unused-vars
+import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
-import { Styled } from "theme-ui";
+import { jsx, Styled } from "theme-ui";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import { slugify, formatDate } from "../utils/helpers";
 
 import "./PostList.css";
-const PostList = ({ posts }) => {
+const PostList = ({ posts, themeConfig }) => {
+	console.log({ themeConfig });
+	const [postsPerPage, setPostsPerPage] = useState(
+		themeConfig.loadMorePosts ? themeConfig.postsPerPage : posts.length
+	);
+	const [postsIncrementBy, setPostsIncrementBy] = useState(
+		themeConfig.postsIncrementBy
+	);
+	const [counter, setCounter] = useState(0);
+
+	useEffect(() => {
+		setCounter(posts.slice(0, postsPerPage).length);
+	}, [postsPerPage, postsIncrementBy, counter]);
+
+	const loadMore = () => {
+		setCounter(posts.slice(0, postsPerPage + postsIncrementBy).length);
+		setPostsPerPage(postsPerPage + postsIncrementBy);
+	};
+
 	return (
 		<Layout cssClass="posts blog-style">
 			<SEO title="Posts" description="posts description" />
 			<div className="main-content">
 				<Styled.h1 className="heading-title">Posts</Styled.h1>
 				<div className="posts-wrapper">
-					{posts.map(({ node }, index) => {
+					{posts.slice(0, postsPerPage).map(({ node }, index) => {
 						return (
 							<div className="post" key={index.toString()}>
 								<div className="post-content">
@@ -50,6 +70,21 @@ const PostList = ({ posts }) => {
 							</div>
 						);
 					})}
+					{counter < posts.length && (
+						<div className="load-more-wrapper">
+							<button
+								sx={{ variant: "buttons.secondary" }}
+								tabIndex={0}
+								onClick={loadMore}
+								onKeyUp={() => {
+									return false;
+								}}
+								className="load-more"
+							>
+								More posts
+							</button>
+						</div>
+					)}
 				</div>
 			</div>
 		</Layout>

@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import "./Page.css";
 
-const Post = ({ data, siteURL }) => {
+const Page = ({ data, siteURL }) => {
 	const page = data.blogPost;
 
 	return (
@@ -28,4 +28,4 @@ const Post = ({ data, siteURL }) => {
 		</Layout>
 	);
 };
-export default Post;
+export default Page;

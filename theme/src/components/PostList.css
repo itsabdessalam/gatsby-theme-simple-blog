@@ -27,7 +27,7 @@
 	padding-left: 16px;
 }
 
-.posts-wrapper .post:not(:last-child) {
+.posts-wrapper .post:not(:last-of-type) {
 	border-bottom: 1px solid #f1f5f8;
 }
 

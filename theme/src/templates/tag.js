@@ -2,8 +2,10 @@ import React from "react";
 import { graphql } from "gatsby";
 import PostList from "../components/PostList";
 
-const PostsTemplate = ({ data }) => {
-	return <PostList posts={data.allBlogPost.edges} />;
+const PostsTemplate = ({ data, pageContext: { themeConfig } }) => {
+	return (
+		<PostList posts={data.allBlogPost.edges} themeConfig={themeConfig} />
+	);
 };
 
 export default PostsTemplate;

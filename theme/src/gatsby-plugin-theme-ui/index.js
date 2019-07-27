@@ -1,29 +1,52 @@
-/**
- * This theme uses `theme-ui` under the hood.
- * @see https://theme-ui.com/
- * @see https://theme-ui.com/gatsby-plugin/
- */
+import { hexToRgba } from "../utils/helpers";
+
+const colors = {
+	heading: "#3a3f46",
+	text: "#3a3f46",
+	background: "#ffffff",
+	primary: "#4185fd",
+	secondary: "#62acff",
+	lightGray: "#dfe2e5",
+	gray: "#636d78",
+	modes: {
+		dark: {
+			heading: "#ffffff",
+			text: "#d3d4d4",
+			background: "#081523",
+			primary: "#4185fd",
+			secondary: "#62acff",
+			lightGray: "#dfe2e5",
+			gray: "#636d78"
+		}
+	}
+};
+
 export default {
 	initialColorMode: "light",
 	useCustomProperties: true,
-	colors: {
-		heading: "#3a3f46",
-		text: "#3a3f46",
-		background: "#ffffff",
-		primary: "#4185fd",
-		secondary: "#62acff",
-		lightGray: "#dfe2e5",
-		gray: "#636d78",
-		modes: {
-			dark: {
-				heading: "#ffffff",
-				text: "#d3d4d4",
-				background: "#081523",
-				primary: "#4185fd",
-				secondary: "#62acff",
-				lightGray: "#dfe2e5",
-				gray: "#636d78"
-			}
+	colors,
+	buttons: {
+		primary: {
+			color: "#ffffff",
+			bg: "primary",
+			fontSize: 0,
+			borderRadius: "3px",
+			border: "none",
+			padding: "14px 24px 12px",
+			margin: "10px auto",
+			display: "block",
+			cursor: "pointer"
+		},
+		secondary: {
+			color: "primary",
+			bg: hexToRgba(colors.primary, 0.2),
+			fontSize: 0,
+			borderRadius: "3px",
+			border: "none",
+			padding: "14px 24px 12px",
+			margin: "10px auto",
+			display: "block",
+			cursor: "pointer"
 		}
 	},
 	fonts: {
@@ -34,7 +57,7 @@ export default {
 	fontSizes: [16, 18, 20, 22, 27, 36],
 	fontWeights: {
 		text: "400",
-		heading: "700"
+		heading: "600"
 	},
 	lineHeights: {
 		text: "1.45",
@@ -77,32 +100,32 @@ export default {
 		},
 		h1: {
 			color: "heading",
-			fontWeight: 600,
+			fontWeight: "heading",
 			fontSize: 5
 		},
 		h2: {
 			color: "heading",
-			fontWeight: 600,
+			fontWeight: "heading",
 			fontSize: 4
 		},
 		h3: {
 			color: "heading",
-			fontWeight: 600,
+			fontWeight: "heading",
 			fontSize: 3
 		},
 		h4: {
 			color: "heading",
-			fontWeight: 600,
+			fontWeight: "heading",
 			fontSize: 2
 		},
 		h5: {
 			color: "heading",
-			fontWeight: 600,
+			fontWeight: "heading",
 			fontSize: 1
 		},
 		h6: {
 			color: "heading",
-			fontWeight: 600,
+			fontWeight: "heading",
 			fontSize: 0
 		}
 	}
