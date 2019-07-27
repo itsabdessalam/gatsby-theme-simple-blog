@@ -23,7 +23,8 @@ const Nav = ({ title, links }) => {
 						display: "flex",
 						alignItems: "center",
 						justifyContent: "space-between",
-						listStyle: "none"
+						listStyle: "none",
+						padding: 0
 					}}
 					className="nav-links"
 				>
