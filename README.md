@@ -150,6 +150,8 @@ Contributions, issues and feature requests are welcome !
 
 [Live demo](https://gatsby-demo-simple-blog.netlify.com/)
 
+[Live demo repo](https://github.com/Abdessalam98/gatsby-demo-simple-blog)
+
 **Hompage**
 ![preview](./preview/homepage.png)
 
