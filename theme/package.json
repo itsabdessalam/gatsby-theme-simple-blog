@@ -10,7 +10,11 @@
 		"type": "git",
 		"url": "git+https://github.com/Abdessalam98/gatsby-theme-simple-blog.git"
 	},
-	"keywords": [],
+	"keywords": [
+		"gatsby",
+		"gatsby-theme",
+		"gatsby-plugin"
+	],
 	"author": "Abdessalam BENHARIRA <contact@abdessalam-benharira.me>",
 	"license": "MIT",
 	"bugs": {
