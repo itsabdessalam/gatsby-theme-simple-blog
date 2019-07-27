@@ -6,18 +6,45 @@ module.exports = {
     }
   ],
   siteMetadata: {
+    url: "https://abdessalam.dev",
     title: "Simple blog",
     author: "Abdessalam",
     description: "Simple blog theme starter",
-    social: [
+    locale: "en-US",
+    socialLinks: [
       {
-        name: "twitter",
-        url: "https://twitter.com/gatsbyjs"
+        text: "Twitter",
+        link: "https://twitter.com/gatsbyjs",
+        external: false
       },
       {
-        name: "github",
-        url: "https://github.com/gatsbyjs"
+        text: "GitHub",
+        link: "https://github.com/gatsbyjs",
+        external: false
       }
-    ]
+    ],
+    navLinks: [
+      {
+        text: "Link 1",
+        link: "/",
+        external: false
+      },
+      {
+        text: "Link 2",
+        link: "/",
+        external: false
+      },
+      {
+        text: "Link 3",
+        link: "/",
+        external: false
+      }
+    ],
+    themeConfig: {
+      themeSwitcher: true,
+      showNavLinks: true,
+      readingTime: true,
+      loadMorePosts: true
+    }
   }
 };

@@ -14,3 +14,33 @@ tags:
 > Aut dicta possimus sint mollitia voluptas commodi quo doloremque
 
 Ut aspernatur corporis harum nihil quis provident sequi mollitia nobis aliquid molestiae perspiciatis et ea nemo ab reprehenderit accusantium quas voluptate dolores velit et doloremque molestiae
+Ut aspernatur corporis harum nihil quis provident sequi mollitia nobis aliquid molestiae perspiciatis et ea nemo ab reprehenderit accusantium quas voluptate dolores velit et doloremque molestiae
+
+```js{4-8}
+module.exports = options => {
+	return {
+		siteMetadata: {
+			url: "https://mysite.placeholder",
+			title: "Blog Title Placeholder",
+			author: "Name Placeholder",
+			description: "Description placeholder",
+			locale: "en-US",
+			socialLinks: [
+				{
+					text: "Twitter",
+					link: "https://twitter.com/gatsbyjs",
+					external: false
+				},
+				{
+					text: "GitHub",
+					link: "https://github.com/gatsbyjs",
+					external: false
+				}
+			],
+        }
+    };
+};
+```
+
+
+This is an inline code `console.log("JavaScript");`

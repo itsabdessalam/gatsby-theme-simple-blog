@@ -1,6 +1,6 @@
 module.exports = {
 	extends: "stylelint-config-recommended",
-	ignoreFiles: ["**/*.js", "**/*.html", "**/*.vue"],
+	ignoreFiles: ["**/*.js", "**/*.html"],
 	rules: {
 		indentation: "tab",
 		"string-quotes": "double",
