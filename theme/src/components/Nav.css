@@ -27,3 +27,14 @@
 .navbar li:not(:last-child) {
 	margin-right: 10px;
 }
+
+@media screen and (max-width: 576px) {
+	.navbar {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.navbar ul {
+		width: 100%;
+	}
+}
