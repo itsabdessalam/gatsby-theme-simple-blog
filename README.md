@@ -11,7 +11,7 @@
 - Tags
 - Static pages for non post types
 - SEO friendly
-- Fully customizable  through `gatsby-config.js`, `gatsby-plugin-theme-ui` and **shadow components**
+- Fully customizable through `gatsby-config.js`, `gatsby-plugin-theme-ui` and **shadow components**
 - Linting with ESLint and Stylelint
 - Code formatting with Prettier
 
@@ -21,28 +21,26 @@ To use this theme in your Gatsby sites, follow these instructions:
 
 1. Install the theme
 
-    ```sh
-    # npm
-    npm install --save gatsby-theme-simple-blog
-    # yarn
-    yarn add gatsby-theme-simple-blog
-    ```
+   ```sh
+   # npm
+   npm install --save gatsby-theme-simple-blog
+   # yarn
+   yarn add gatsby-theme-simple-blog
+   ```
 
 2. Add the theme to your `gatsby-config.js`:
 
-    ```js
-    module.exports = {
-      plugins: [
-        'gatsby-theme-simple-blog'
-      ]
-    }
-    ```
+   ```js
+   module.exports = {
+     plugins: ["gatsby-theme-simple-blog"]
+   };
+   ```
 
 3. Start your site
 
-    ```sh
-    gatsby develop
-    ```
+   ```sh
+   gatsby develop
+   ```
 
 ## ⚙ Configuration
 
@@ -52,10 +50,10 @@ module.exports = {
     {
       resolve: "gatsby-theme-simple-blog",
       options: {
-           basePath: "", // base url "/"
-           tagsPath: "", // tags url "/tags"
-           contentPath: "", // content url for posts"/content/posts"
-           assetPath: "", //  assets url "/content/assets"
+        basePath: "", // base url "/"
+        tagsPath: "", // tags url "/tags"
+        contentPath: "", // content url for posts"/content/posts"
+        assetPath: "" //  assets url "/content/assets"
       }
     }
   ],
@@ -65,7 +63,8 @@ module.exports = {
     author: "Abdessalam",
     description: "Simple blog theme starter",
     locale: "en",
-    socialLinks: [ // links displayed in footer
+    socialLinks: [
+      // links displayed in footer
       {
         text: "Twitter",
         link: "https://twitter.com/gatsbyjs"
@@ -75,7 +74,8 @@ module.exports = {
         link: "https://github.com/gatsbyjs"
       }
     ],
-    navLinks: [ // links display in navbar
+    navLinks: [
+      // links display in navbar
       {
         text: "Home",
         link: "/"
@@ -98,7 +98,6 @@ module.exports = {
     }
   }
 };
-
 ```
 
 ## 💅 Customization
@@ -137,7 +136,7 @@ You can override theme components using [Component Shadowing](https://www.gatsby
 ├── .gitignore
 ├── .prettierrc.js
 ├── .eslintrc.js
-├── .stylelintrc.config.js  
+├── .stylelintrc.config.js
 ├── package.json
 ├── README.md
 └── LICENSE
@@ -145,4 +144,17 @@ You can override theme components using [Component Shadowing](https://www.gatsby
 
 ## 👨🏻‍💻👩‍💻 Contributing
 
-Submit an issue.
+Contributions, issues and feature requests are welcome !
+
+## Demo
+
+[Live demo](https://gatsby-demo-simple-blog.netlify.com/)
+
+**Hompage**
+![preview](./preview/homepage.png)
+
+**Single post**
+![preview](./preview/single-post.png)
+
+**Single page**
+![preview](./preview/single-page.png)
