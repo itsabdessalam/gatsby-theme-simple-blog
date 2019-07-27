@@ -154,7 +154,11 @@ Contributions, issues and feature requests are welcome !
 ![preview](./preview/homepage.png)
 
 **Single post**
-![preview](./preview/single-post.png)
+![preview](./preview/post.png)
 
 **Single page**
-![preview](./preview/single-page.png)
+![preview](./preview/page.png)
+
+## Author
+
+[Abdessalam BENHARIRA](https://abdessalam.dev)
