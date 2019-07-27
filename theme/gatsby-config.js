@@ -13,30 +13,25 @@ module.exports = options => {
 			socialLinks: [
 				{
 					text: "Twitter",
-					link: "https://twitter.com/gatsbyjs",
-					external: false
+					link: "https://twitter.com/gatsbyjs"
 				},
 				{
 					text: "GitHub",
-					link: "https://github.com/gatsbyjs",
-					external: false
+					link: "https://github.com/gatsbyjs"
 				}
 			],
 			navLinks: [
 				{
 					text: "Link 1",
-					link: "/",
-					external: false
+					link: "/"
 				},
 				{
 					text: "Link 2",
-					link: "/",
-					external: false
+					link: "/"
 				},
 				{
 					text: "Link 3",
-					link: "/",
-					external: false
+					link: "/"
 				}
 			],
 			themeConfig: {

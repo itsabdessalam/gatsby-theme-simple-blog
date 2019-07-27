@@ -2,6 +2,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { jsx, Styled, Container } from "theme-ui";
+import Link from "../components/Link";
 import "./Footer.css";
 
 const Footer = ({ socialLinks }) => {
@@ -20,7 +21,7 @@ const Footer = ({ socialLinks }) => {
 					{socialLinks.map((link, index) => {
 						return (
 							<li key={index.toString()}>
-								<Styled.a href={link.link}>
+								<Styled.a as={Link} to={link.link}>
 									{link.text}
 								</Styled.a>
 							</li>

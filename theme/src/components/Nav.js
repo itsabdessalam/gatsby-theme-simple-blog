@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Styled } from "theme-ui";
-import { Link } from "gatsby";
+import Link from "../components/Link";
 import ThemeSwitcher from "../components/ThemeSwitcher";
 import "./Nav.css";
 
