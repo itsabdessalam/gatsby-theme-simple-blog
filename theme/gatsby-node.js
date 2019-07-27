@@ -13,6 +13,7 @@ let assetPath;
 const PostTemplate = require.resolve("./src/templates/post");
 const PostsTemplate = require.resolve("./src/templates/posts");
 const TagTemplate = require.resolve("./src/templates/tag");
+const PageTemplate = require.resolve("./src/templates/page");
 
 exports.onPreBootstrap = ({ store }, themeOptions) => {
 	const { program } = store.getState();
@@ -209,7 +210,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 		const { slug } = page;
 		createPage({
 			path: slug,
-			component: PostTemplate,
+			component: PageTemplate,
 			context: {
 				...page,
 				siteTitle,

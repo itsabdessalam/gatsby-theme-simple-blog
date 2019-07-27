@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Post from "../components/post";
+import Post from "../components/Post";
 
 const PostTemplate = ({ data, pageContext: { siteURL, previous, next } }) => {
 	return (
