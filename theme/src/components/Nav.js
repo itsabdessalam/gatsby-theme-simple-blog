@@ -7,7 +7,8 @@ import Link from "../components/Link";
 import ThemeSwitcher from "../components/ThemeSwitcher";
 import "./Nav.css";
 
-const Nav = ({ title, links }) => {
+const Nav = ({ title, links, themeConfig }) => {
+	const { themeSwitcher, showNavLinks } = themeConfig;
 	return (
 		<nav className="navbar">
 			<div className="logo">
@@ -17,7 +18,7 @@ const Nav = ({ title, links }) => {
 					</div>
 				</Link>
 			</div>
-			{links && (
+			{showNavLinks && links && (
 				<Styled.ul
 					sx={{
 						display: "flex",
@@ -41,7 +42,7 @@ const Nav = ({ title, links }) => {
 							</li>
 						);
 					})}
-					<ThemeSwitcher></ThemeSwitcher>
+					{themeSwitcher && <ThemeSwitcher></ThemeSwitcher>}
 				</Styled.ul>
 			)}
 		</nav>
@@ -50,7 +51,8 @@ const Nav = ({ title, links }) => {
 
 Nav.propTypes = {
 	links: PropTypes.array,
-	title: PropTypes.string
+	title: PropTypes.string,
+	themeConfig: PropTypes.object
 };
 
 Nav.defaultProps = { links: [], title: "Blog title" };

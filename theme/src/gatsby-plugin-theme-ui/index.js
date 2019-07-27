@@ -115,7 +115,8 @@ export default {
 		},
 		a: {
 			textDecoration: "none",
-			transition: "all 0.2s cubic-bezier(0.75, 0, 0.08, 1) 0s"
+			transition: "all 0.2s cubic-bezier(0.75, 0, 0.08, 1) 0s",
+			variant: "links.primary"
 		},
 		table: {
 			width: "100%",

@@ -10,7 +10,7 @@ module.exports = {
     title: "Simple blog",
     author: "Abdessalam",
     description: "Simple blog theme starter",
-    locale: "en-US",
+    locale: "en",
     socialLinks: [
       {
         text: "Twitter",
@@ -34,14 +34,6 @@ module.exports = {
         text: "Contact",
         link: "/contact"
       }
-    ],
-    themeConfig: {
-      themeSwitcher: true,
-      showNavLinks: true,
-      readingTime: true,
-      loadMorePosts: false,
-      postsPerPage: 10,
-      postsIncrementBy: 5
-    }
+    ]
   }
 };

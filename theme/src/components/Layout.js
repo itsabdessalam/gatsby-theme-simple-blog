@@ -26,6 +26,11 @@ const Layout = ({ children, cssClass }) => {
 							text
 							link
 						}
+
+						themeConfig {
+							showNavLinks
+							themeSwitcher
+						}
 					}
 				}
 			}
@@ -44,6 +49,7 @@ const Layout = ({ children, cssClass }) => {
 			<Header
 				siteTitle={siteMetadata.title}
 				navLinks={siteMetadata.navLinks}
+				themeConfig={siteMetadata.themeConfig}
 			/>
 			<Main>
 				<Container>{children}</Container>

@@ -3,11 +3,15 @@ import React from "react";
 import { Container } from "theme-ui";
 import Nav from "./Nav";
 
-const Header = ({ siteTitle, navLinks }) => {
+const Header = ({ siteTitle, navLinks, themeConfig }) => {
 	return (
 		<header>
 			<Container>
-				<Nav title={siteTitle} links={navLinks} />
+				<Nav
+					themeConfig={themeConfig}
+					title={siteTitle}
+					links={navLinks}
+				/>
 			</Container>
 		</header>
 	);
@@ -15,7 +19,8 @@ const Header = ({ siteTitle, navLinks }) => {
 
 Header.propTypes = {
 	siteTitle: PropTypes.string,
-	navLinks: PropTypes.array
+	navLinks: PropTypes.array,
+	themeConfig: PropTypes.object
 };
 
 Header.defaultProps = {

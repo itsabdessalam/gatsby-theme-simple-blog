@@ -35,7 +35,8 @@
 		"eslint-plugin-react": "^7.14.2",
 		"eslint-plugin-react-hooks": "^1.6.1",
 		"gatsby": "^2.13.32",
-		"husky": "^2.4.1",
+		"husky": "^3.0.1",
+		"lint-staged": "^9.2.1",
 		"prettier": "^1.18.2",
 		"prettier-eslint": "^8.8.2",
 		"pretty-quick": "^1.11.1",
@@ -74,5 +75,18 @@
 		"react-switch": "^5.0.1",
 		"remark-slug": "^5.1.2",
 		"theme-ui": "^0.2.14"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "pretty-quick --staged && lint-staged"
+		}
+	},
+	"lint-staged": {
+		"**/*.{js,jsx}": [
+			"eslint"
+		],
+		"**/*.{sass,scss,css}": [
+			"stylelint"
+		]
 	}
 }

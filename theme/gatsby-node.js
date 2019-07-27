@@ -107,7 +107,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 						loadMorePosts
 						showNavLinks
 						themeSwitcher
-						readingTime
 						postsPerPage
 						postsIncrementBy
 					}
