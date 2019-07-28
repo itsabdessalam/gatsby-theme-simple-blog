@@ -14,9 +14,9 @@ module.exports = {
 	},
 	env: {
 		browser: true,
-		mocha: true,
 		node: true
 	},
+	plugins: ["react"],
 	rules: {
 		"linebreak-style": ["error", "unix"],
 		quotes: ["error", "double"],
@@ -78,7 +78,6 @@ module.exports = {
 				tabWidth: 4,
 				bracketSpacing: true
 			}
-		],
-		plugins: ["react"]
+		]
 	}
 };
