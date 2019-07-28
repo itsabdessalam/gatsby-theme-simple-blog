@@ -112,6 +112,29 @@ You can override theme components using [Component Shadowing](https://www.gatsby
 
 4. You can also override or add new global css styles in assets as they are imported in `globalStyle.js`
 
+## ✍ Writing content 
+
+Example of release post in `content/posts/[POST_TITLE]/index.mdx`
+You can create pages by passing type to `page`
+
+```
+---
+type: post
+title: Another post
+date: 2019-07-23
+draft: false
+media: ./img1.jpeg
+author: Abdessalam
+tags:
+  - Hello
+  - Post
+  - Welcome
+---
+
+Content goes here
+```
+
+
 ## 🧐 What's inside?
 
 ```
