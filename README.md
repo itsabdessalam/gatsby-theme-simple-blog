@@ -1,6 +1,6 @@
 # Simple blog - Gatsby Theme
 
-> Ready to be used blogging theme
+Ready to be used blogging theme
 
 ## ✨ Features
 
@@ -108,13 +108,36 @@ You can override theme components using [Component Shadowing](https://www.gatsby
 
 2. Override any component you want by creating a new one and its css file, for example `Nav.js` and `Nav.css`
 
-3. You can also override [theme-ui](https://theme-ui.com/getting-started) theme style by creating `gatsby-plugin-theme-ui` folder and new object style or components
+```bash
+src/gatsby-theme-simple-blog/components/Nav.js
+```
 
-4. You can also override or add new global css styles in assets as they are imported in `globalStyle.js`
+3. You can also override [theme-ui](https://theme-ui.com/getting-started) theme style by creating `gatsby-plugin-theme-ui` folder and new object style or components or merge with theme file in `index.js`
 
-## ✍ Writing content 
+```bash
+src/gatsby-plugin-theme-ui
+```
+
+```javascript
+import baseTheme from "gatsby-theme-simple-blog/src/gatsby-plugin-theme-ui";
+import merge from "lodash.merge";
+export default merge({}, baseTheme, {
+  colors: {},
+  styles: {}
+});
+```
+
+4. You can also override or add new global css styles in assets as they are imported in `globalStyle.js` which has an importAll helper
+
+```javascript
+import { importAll } from "./helpers";
+importAll(require.context("../assets/", true, /\.css$/));
+```
+
+## ✍ Writing content
 
 Example of release post in `content/posts/[POST_TITLE]/index.mdx`
+
 You can create pages by passing type to `page`
 
 ```
@@ -133,7 +156,6 @@ tags:
 
 Content goes here
 ```
-
 
 ## 🧐 What's inside?
 
@@ -173,16 +195,14 @@ Contributions, issues and feature requests are welcome !
 
 [Live demo](https://gatsby-demo-simple-blog.netlify.com/)
 
-[Live demo repo](https://github.com/Abdessalam98/gatsby-demo-simple-blog)
-
 **Hompage**
-![preview](./preview/homepage.png)
+![preview](../preview/homepage.png)
 
 **Single post**
-![preview](./preview/post.png)
+![preview](../preview/post.png)
 
 **Single page**
-![preview](./preview/page.png)
+![preview](../preview/page.png)
 
 ## Author
 
