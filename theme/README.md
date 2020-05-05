@@ -1,19 +1,19 @@
 # Simple blog - Gatsby Theme
 
-Ready to be used blogging theme
+Blog theme starter
 
 ## ✨ Features
 
--   Theme UI for styling
--   PrismJS highlighting
--   Gatsby Image
--   Posts in MDX
--   Tags
--   Static pages for non post types
--   SEO friendly
--   Fully customizable through `gatsby-config.js`, `gatsby-plugin-theme-ui` and **shadow components**
--   Linting with ESLint and Stylelint
--   Code formatting with Prettier
+- Theme UI for styling
+- PrismJS highlighting
+- Gatsby Image
+- Posts in MDX
+- Tags
+- Static pages for non post types
+- SEO friendly
+- Fully customizable through `gatsby-config.js`, `gatsby-plugin-theme-ui` and **shadow components**
+- Linting with ESLint and Stylelint
+- Code formatting with Prettier
 
 ## 🚀 Installation
 
@@ -194,15 +194,6 @@ Contributions, issues and feature requests are welcome !
 ## Demo
 
 [Live demo](https://gatsby-demo-simple-blog.netlify.com/)
-
-**Hompage**
-![preview](../preview/homepage.png)
-
-**Single post**
-![preview](../preview/post.png)
-
-**Single page**
-![preview](../preview/page.png)
 
 ## Author
 

@@ -1,6 +1,6 @@
 # Simple blog - Gatsby Theme
 
-Ready to be used blogging theme
+Blog theme starter
 
 ## ✨ Features
 
@@ -194,15 +194,6 @@ Contributions, issues and feature requests are welcome !
 ## Demo
 
 [Live demo](https://gatsby-demo-simple-blog.netlify.com/)
-
-**Hompage**
-![preview](../preview/homepage.png)
-
-**Single post**
-![preview](../preview/post.png)
-
-**Single page**
-![preview](../preview/page.png)
 
 ## Author
 
